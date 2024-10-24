@@ -180,12 +180,14 @@ using Random = UnityEngine.Random;
 
 public class EnemyScript : MonoBehaviour
 {
-    public int EnemyMaxHp { get; set; }
+    public int EnemyMaxHp { get; set; } = 100;
     public int EnemyHp { get; set; }
     public int EnemyDamage { get; set; }
     public int EnemySpeed { get; set; }
     float distanceToPlayer;
     GameObject player;
+
+    public List<GameObject> items;
 
     float chaseDistance = 5f;
     float attackDistance = 1.5f;
@@ -214,7 +216,7 @@ public class EnemyScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         roamPoint = transform.position;
         animator = GetComponent<Animator>();
-        characterStats = player.GetComponent<CharacterStats>();
+        characterStats = FindObjectOfType<CharacterStats>();
        
     }
 
@@ -293,7 +295,6 @@ public class EnemyScript : MonoBehaviour
         double xx = vector.x;
         xx = xx > 0 ? Math.Ceiling(xx) : Math.Floor(xx);
         xx = yy > 0 ? Math.Ceiling(yy) : Math.Floor(yy);
-
         animator.SetFloat("eY", (float)yy);
         animator.SetFloat("eX", (float)xx);
 
@@ -302,11 +303,47 @@ public class EnemyScript : MonoBehaviour
 
     public void Attack()
     {
-        EnemyDamage = Random.Range(1, 3);
-        if (distanceToPlayer < attackDistance)
-        {
-            characterStats.Hp -= EnemyDamage;
-            Debug.Log(characterStats.Hp);
+
+        if (distanceToPlayer < attackDistance) {
+            Debug.Log(characterStats.Hp + " __________________________");
+            if (characterStats.Armor >= EnemyDamage)
+                characterStats.Armor -= EnemyDamage;
+
+            else { 
+                characterStats.Hp -= Math.Abs(characterStats.Armor - EnemyDamage) ;
+                characterStats.Armor = 0;
+            }
         }
+
+
+        if (characterStats.Hp <= 0)
+            SceneManager.LoadScene(1);
+
+
+        //if (distanceToPlayer < attackDistance)
+        //{
+        //    characterStats.Hp -= EnemyDamage;
+        //}
+        //else
+        //    characterStats.Hp -= EnemyDamage;
+        //if (characterStats.Hp < 0)
+        //    SceneManager.LoadScene(1);
+    }
+
+    public void DropGoods()
+    {
+        
+        var randomCount = Random. Range(1, 4);
+
+        for (int i = 0; i < randomCount; i++)
+        {
+            var randomItem = Random.Range(0, items.Count);
+            Instantiate(items[randomItem], GetRandomInradius(transform.position,2),Quaternion.identity);
+        }
+        
+    }
+    public Vector2 GetRandomInradius(Vector3 centerPoint, float radius)
+    {
+        return centerPoint + (Random.insideUnitSphere * radius);
     }
 }

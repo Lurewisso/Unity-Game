@@ -43,7 +43,7 @@ public class UIScript : MonoBehaviour
     {
        
 
-        hpBar.value = stats.MaxHp;
+        hpBar.value = stats.Hp;
         armorBar.value = stats.Armor;
         expBar.value = stats.Experience;
         lvlText.text = stats.Level.ToString();

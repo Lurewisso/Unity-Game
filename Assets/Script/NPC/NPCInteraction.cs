@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class NPCInteraction : MonoBehaviour
 {
     public TextMeshProUGUI interactionText; 
+
     private bool playerInRange;
 
     private void Start()
@@ -21,6 +22,8 @@ public class NPCInteraction : MonoBehaviour
             interactionText.gameObject.SetActive(true); 
         }
     }
+
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -39,5 +42,9 @@ public class NPCInteraction : MonoBehaviour
             Debug.Log("Взаимодействие с NPC!");
         }
     }
+
+
+
+
 }
 

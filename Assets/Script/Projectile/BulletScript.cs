@@ -7,7 +7,7 @@ public class BulletScript : MonoBehaviour
     CharacterMove characterMove;
     Vector3 shootingDirection;
     CharacterAttack characterAttack;
-
+   
     void Start()
     {
         characterAttack = FindObjectOfType<CharacterAttack>();
@@ -37,9 +37,15 @@ public class BulletScript : MonoBehaviour
             if(eminem.EnemyHp <= 0)
             {
                 var anim = collision.gameObject.GetComponent<Animator>();
+                
                 anim.SetTrigger("DeathTrigger");
                 eminem.EnemySpeed = 0;
                 Destroy(collision.gameObject);
+                eminem.DropGoods();
+                //collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+
+
             }
         }
         Destroy(gameObject);
