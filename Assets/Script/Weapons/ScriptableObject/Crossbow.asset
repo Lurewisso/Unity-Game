@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc65eabee0c5f5419a8dc89aae5b086, type: 3}
+  m_Name: Crossbow
+  m_EditorClassIdentifier: 
+  Ammo: 30
+  MaxAmmo: 30
+  Arrow: 20
+  MaxArrow: 0
+  LimitAmmo: 50
+  Magazine: 30
+  Damage: 5
+  AttackSpeed: 5
+  ReloadSpeed: 5
+  GunType: 2
+  ProjectilePrefab: {fileID: 0}
+  sprite: {fileID: 0}
+  bulletType: 4
