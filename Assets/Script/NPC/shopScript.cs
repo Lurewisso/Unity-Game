@@ -62,6 +62,7 @@ public class shopScript : MonoBehaviour
             shopObj.SetActive(false);
         
         ClearItems();
+       
 
         
     }
@@ -73,11 +74,17 @@ public class shopScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && inShop)
         {
             shopObj.SetActive(true);
-            GenerateItems();
+
+            if(parentBtn.childCount < items.Count)
+            {
+                GenerateItems();
+            }
+            
         }
         else if (Input.GetKeyUp(KeyCode.Escape) && inShop)
         {
             {
+                Time.timeScale = 1;
                 shopObj.SetActive(false);
                 ClearItems();
             }

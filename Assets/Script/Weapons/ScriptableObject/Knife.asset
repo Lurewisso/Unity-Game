@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ammo: 0
   MaxAmmo: 0
+  Arrow: 0
+  MaxArrow: 0
   LimitAmmo: 0
   Magazine: 0
-  Damage: 0
-  AttackSpeed: 0
+  Damage: 20
+  AttackSpeed: 10
   ReloadSpeed: 0
   GunType: 0
   ProjectilePrefab: {fileID: 0}
+  sprite: {fileID: 0}
+  bulletType: 0

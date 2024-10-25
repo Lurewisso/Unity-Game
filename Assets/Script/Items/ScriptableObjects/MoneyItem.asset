@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   name: 
-  value: 500000
-  cost: 5
+  value: 100
+  cost: 20
   sprite: {fileID: 0}
   itemPrefab: {fileID: 0}

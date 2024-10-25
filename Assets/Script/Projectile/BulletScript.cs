@@ -40,9 +40,12 @@ public class BulletScript : MonoBehaviour
                 
                 anim.SetTrigger("DeathTrigger");
                 eminem.EnemySpeed = 0;
-                Destroy(collision.gameObject);
+                Destroy(collision.gameObject,2);
                 eminem.DropGoods();
-                //collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+
+                collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                EnemySpawner.CountOfZombi += 1;
 
 
 

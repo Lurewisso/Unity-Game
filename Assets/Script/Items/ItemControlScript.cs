@@ -85,8 +85,11 @@ public class ItemControlScript : MonoBehaviour
             stat = MaxStat;
         }
         else
+        {
             stat += value;
             Destroy(gameObject);
+        }
+           
         Debug.Log($"{stat} - {MaxStat}");
     }
 
@@ -101,6 +104,7 @@ public class ItemControlScript : MonoBehaviour
         {
             playerStats.Experience += value;
             playerStats.Level++;
+            UpgradeStats();
             playerStats.Experience -= playerStats.MaxExperience;
             playerStats.MaxExperience = (int)(playerStats.Level * 0.5f * (playerStats.Experience + (playerStats.MaxExperience * 0.1f)));
 

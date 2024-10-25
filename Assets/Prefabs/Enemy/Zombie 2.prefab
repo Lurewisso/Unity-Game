@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6507862843833227660}
   - component: {fileID: 7631707539931853892}
   m_Layer: 0
-  m_Name: Zombie 1
+  m_Name: Zombie 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,13 +172,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb23fe18908dae40b516a4203e19f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyMaxHp: 100
-  EnemyHp: 100
-  EnemyDamage: 25
+  EnemyMaxHp: 1000
+  EnemyHp: 1000
+  EnemyDamage: 100
   items:
   - {fileID: 8278558885533830877, guid: 7a3e516248f974b4ea4e47939a3c22b9, type: 3}
   - {fileID: 4409997950720244188, guid: 085ac1a24cf464a46bf65302556a2f26, type: 3}
   - {fileID: 8278558885533830877, guid: 7a3e516248f974b4ea4e47939a3c22b9, type: 3}
+  attackDistance: 3
 --- !u!95 &7631707539931853892
 Animator:
   serializedVersion: 5

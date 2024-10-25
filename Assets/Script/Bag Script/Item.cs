@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Item
 {
-    public string itemName; // Название предмета
-    public Sprite itemIcon; // Иконка предмета
+    public string itemName; 
+    public Sprite itemIcon; 
 }

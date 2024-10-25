@@ -5,13 +5,18 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
+    public GameObject Boss;
 
     int count = 5;
     public List<Transform> spawnPoints;
 
-    int minCount = 10;
-    int maxCount = 100;
+    int minCount = 1;
+    int maxCount = 10;
 
+    public static int CountOfZombi;
+
+
+    
 
     void Start()
     {
@@ -27,7 +32,11 @@ public class EnemySpawner : MonoBehaviour
    
     void Update()
     {
-        
+        if (CountOfZombi >= count)
+        {
+            Instantiate(Boss,transform.position, Quaternion.identity);
+            CountOfZombi = 0;
+        }
     }
 
     void SpawnEnemies(Transform point)

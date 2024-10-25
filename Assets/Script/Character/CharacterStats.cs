@@ -6,7 +6,7 @@ public class CharacterStats : MonoBehaviour
 {
     public int Hp;
     public int MaxHp = 100;
-
+    public int Damage = 20;
     public int Experience  = 0;
     public int MaxExperience = 1000;
     public int Level = 1;

@@ -26,7 +26,9 @@ public class CharacterAttack : MonoBehaviour
     {
         playerMove = GetComponent<CharacterMove>();
         stats = GetComponent<CharacterStats>();
-        UiScript = GetComponent<UIScript>();
+
+
+        //UiScript = GetComponent<UIScript>();
 
         //HandleChangeGun().UpdateAmmo();
         //HandleChangeGun().UpdateArrow();
@@ -135,13 +137,41 @@ public class CharacterAttack : MonoBehaviour
 
     public void MeleeAttack()
     {
+        Debug.Log("ABOB AAAAAAAA");
         Collider2D enemy = Physics2D.OverlapCircle(meleeAttackPoint.position, meleeAttackRange);
+        
 
-        if (enemy != null)
-            Debug.Log(enemy.name);
-        else
-            Debug.Log("YA UDARIL");
+        
 
+
+        
+            if (enemy != null && enemy.tag == "Enemy")
+            {
+                var eminem = enemy.GetComponent<EnemyScript>();
+
+                eminem.EnemyHp -= 30;
+
+                if (eminem.EnemyHp <= 0)
+                {
+                    var anim = enemy.gameObject.GetComponent<Animator>();
+
+                    anim.SetTrigger("DeathTrigger");
+
+                    eminem.EnemySpeed = 0;
+
+                    Destroy(enemy.gameObject, 2);
+
+                    eminem.DropGoods();
+
+
+                    enemy.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                    EnemySpawner.CountOfZombi += 1;
+                }
+            }
+        
+        
+
+        
     }
 
     private void OnDrawGizmosSelected()
